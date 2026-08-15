@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHAMAT CHOUA ABDALLAH - Ingénieur & Consultant Indépendant</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-dark: #0F172A;
+            --secondary-dark: #1E293B;
+            --accent-blue: #2563EB;
+            --accent-green: #10B981;
+            --bg-light: #F8FAFC;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            color: #334155;
+            scroll-behavior: smooth;
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            background-color: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            color: #FFFFFF !important;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        
+        /* Correction du logo */
+        .logo-img {
+            height: 45px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .navbar-nav {
+            align-items: center; /* Aligne le menu verticalement */
+        }
+
+        /* Correction des liens pour éviter l'affichage sur 2 lignes */
+        .nav-link {
+            color: #CBD5E1 !important;
+            font-weight: 500;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+            white-space: nowrap; /* Empêche le texte de sauter une ligne */
+            transition: color 0.2s ease-in-out;
+        }
+        .nav-link:hover, .nav-link.active {
+            color: #60A5FA !important;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.95) 100%), 
+                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            color: white;
+            padding: 140px 0 100px 0;
+        }
+        .hero-title {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: #60A5FA;
+            font-weight: 600;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: #CBD5E1;
+        }
+        .contact-pill {
+            background-color: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 50px;
+            padding: 8px 18px;
+            display: inline-block;
+            margin-right: 8px;
+            margin-bottom: 10px;
+            color: #E2E8F0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        .contact-pill:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        /* --- Sections Globales --- */
+        section {
+            padding: 80px 0;
+            clear: both;
+        }
+        .section-header {
+            margin-bottom: 40px;
+        }
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+            position: relative;
+            display: inline-block;
+            padding-bottom: 8px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 4px;
+            background-color: var(--accent-blue);
+            border-radius: 2px;
+        }
+
+        /* --- Cards & Content --- */
+        .custom-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        .custom-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .service-card img {
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .badge-skill {
+            background-color: #EFF6FF;
+            color: var(--accent-blue);
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 6px;
+            margin-right: 5px;
+            margin-bottom: 8px;
+            display: inline-block;
+            border: 1px solid #DBEAFE;
+            font-size: 0.85rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            border-left: 2px solid #E2E8F0;
+            padding-left: 20px;
+            margin-left: 5px;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 4px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: var(--accent-blue);
+            border: 2px solid white;
+        }
+
+        /* Section Contact */
+        #contact {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+        #contact .section-title {
+            color: white;
+        }
+        .contact-box {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 25px;
+            text-align: center;
+            height: 100%;
+        }
+        .contact-icon {
+            font-size: 2rem;
+            color: #60A5FA;
+            margin-bottom: 12px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #090D16;
+            color: #94A3B8;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top py-2">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#hero">
+                <img src="Brovax.png" alt="Logo Brovax" class="logo-img">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Mes Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#profil">Profil & Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#parcours">Réalisations</a></li>
+                    <li class="nav-item"><a class="nav-link fw-bold text-warning" href="#contact"><i class="fas fa-paper-plane me-1"></i> Demander un devis</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SECTION HERO (ACCUEIL) -->
+    <section id="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <span class="badge bg-success px-3 py-2 mb-3 rounded-pill"><i class="fas fa-check-circle me-1"></i> Disponible pour projets & prestations</span>
+                    <h1 class="hero-title mb-2">MAHAMAT CHOUA</h1>
+                    <h2 class="hero-subtitle mb-3">Ingénieur Informatique — Développeur Web, Expert SIG & Designer</h2>
+                    <p class="hero-desc mb-4">
+                        Vous avez besoin d'une application sur-mesure, d'un site web performant, d'une analyse de données cartographiques (SIG) ou d'un design professionnel ? Je concrétise vos projets numériques rapidement et efficacement.
+                    </p>
+                    
+                    <div class="mb-4">
+                        <a href="mailto:mchouaabdallah@gmail.com" class="contact-pill">
+                            <i class="fas fa-envelope me-2 text-info"></i>chouamhmt@gmail.com
+                        </a>
+                        <a href="https://wa.me/23566569068" target="_blank" class="contact-pill">
+                            <i class="fab fa-whatsapp me-2 text-success"></i>+235 66 56 90 68
+                        </a>
+                        <span class="contact-pill">
+                            <i class="fas fa-map-marker-alt me-2 text-info"></i>N’Djamena, Tchad
+                        </span>
+                    </div>
+
+                    <div>
+                        <a href="#contact" class="btn btn-primary btn-lg me-2 shadow-sm"><i class="fas fa-briefcase me-2"></i> Commander un service</a>
+                        <a href="https://wa.me/23566569068" target="_blank" class="btn btn-outline-light btn-lg"><i class="fab fa-whatsapp me-2"></i> Discuter sur WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION SERVICES OFFERTS -->
+    <section id="services" class="bg-light">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Mes Services & Prestations</h2>
+                <p class="text-muted mt-2">Solutions informatiques et créatives adaptées à vos besoins professionnels</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="custom-card service-card h-100 text-center">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=600&q=80" alt="Développement Web">
+                        <h5 class="fw-bold text-dark">Développement Web</h5>
+                        <p class="text-secondary small">Création d'applications web de gestion (scolarité, stocks, paie) et de sites internet avec PHP, Laravel, Python/Django.</p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="custom-card service-card h-100 text-center">
+                        <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&w=600&q=80" alt="Cartographie SIG">
+                        <h5 class="fw-bold text-dark">Cartographie & SIG</h5>
+                        <p class="text-secondary small">Traitement de données géospatiales, numérisation et création de cartes thématiques professionnelles sur QGIS.</p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="custom-card service-card h-100 text-center">
+                        <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=600&q=80" alt="Design & Montage">
+                        <h5 class="fw-bold text-dark">Infographie & Vidéo</h5>
+                        <p class="text-secondary small">Conception de logos, d'affiches publicitaires, mise en page de documents et montage vidéo dynamique (Photoshop, Premiere Pro).</p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="custom-card service-card h-100 text-center">
+                        <img src="https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=600&q=80" alt="Maintenance & Support">
+                        <h5 class="fw-bold text-dark">Maintenance & Support</h5>
+                        <p class="text-secondary small">Maintenance informatique, configuration système, diagnostic matériel et gestion/saisie de données volumineuses.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PROFIL & COMPÉTENCES -->
+    <section id="profil" class="bg-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Profil & Compétences</h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="custom-card h-100">
+                        <h5 class="fw-bold mb-3 text-dark"><i class="fas fa-user-circle me-2 text-primary"></i> À Propos de moi</h5>
+                        <p class="text-secondary small">
+                            Je suis un ingénieur informaticien orienté résultats. Fort d'une expérience polyvalente allant du développement d'applications web de gestion à la cartographie numérique, j'accompagne les entreprises et particuliers dans leur transformation numérique.
+                        </p>
+                        <p class="text-secondary small mb-0">
+                            Rigoureux et autonome, je garantis un travail soigné, livré dans les délais pour apporter une réelle valeur ajoutée à vos activités.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="custom-card h-100">
+                        <h5 class="fw-bold mb-3 text-dark"><i class="fas fa-laptop-code me-2 text-primary"></i> Compétences Techniques</h5>
+                        
+                        <div class="mb-3">
+                            <p class="fw-bold text-dark mb-1 small">Programmation & Frameworks :</p>
+                            <span class="badge-skill">PHP</span>
+                            <span class="badge-skill">Python</span>
+                            <span class="badge-skill">Laravel</span>
+                            <span class="badge-skill">Django</span>
+                            <span class="badge-skill">HTML5 / CSS3</span>
+                        </div>
+
+                        <div class="mb-3">
+                            <p class="fw-bold text-dark mb-1 small">Bases de Données & SIG :</p>
+                            <span class="badge-skill">MySQL</span>
+                            <span class="badge-skill">MS Access</span>
+                            <span class="badge-skill">QGIS (Cartographie)</span>
+                        </div>
+
+                        <div>
+                            <p class="fw-bold text-dark mb-1 small">Design & Multimédia :</p>
+                            <span class="badge-skill">Photoshop</span>
+                            <span class="badge-skill">Illustrator</span>
+                            <span class="badge-skill">InDesign</span>
+                            <span class="badge-skill">Premiere Pro</span>
+                            <span class="badge-skill">CapCut</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PARCOURS & PROJETS -->
+    <section id="parcours">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Parcours Académique & Projets</h2>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <h5 class="fw-bold mb-4 text-dark"><i class="fas fa-graduation-cap me-2 text-primary"></i> Diplômes</h5>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h6 class="fw-bold text-dark mb-1">Licence Professionnelle en Génie Informatique</h6>
+                            <span class="badge bg-primary mb-2">30 Novembre 2020</span>
+                            <p class="text-muted small mb-0">INSTA (Institut Supérieur des Sciences et Techniques) | Abéché</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6 class="fw-bold text-dark mb-1">Baccalauréat Scientifique (Série D)</h6>
+                            <span class="badge bg-secondary mb-2">Juin 2015</span>
+                            <p class="text-muted small mb-0">Centre d’examen de Farcha | N’Djamena</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <h5 class="fw-bold mb-4 text-dark"><i class="fas fa-project-diagram me-2 text-primary"></i> Projets Réalisés</h5>
+                    
+                    <div class="custom-card mb-3">
+                        <h6 class="fw-bold text-dark mb-1">Application Web de Gestion Scolaire</h6>
+                        <span class="text-muted small d-block mb-2">Projet FSEA</span>
+                        <p class="text-secondary small mb-0">
+                            Conception et développement d’une application web sous <strong>PHP/MySQL</strong> permettant la gestion des inscriptions, le suivi des étudiants et l'édition des bulletins.
+                        </p>
+                    </div>
+
+                    <div class="custom-card mb-3">
+                        <h6 class="fw-bold text-dark mb-1">Application de Gestion de Stock</h6>
+                        <span class="text-muted small d-block mb-2">Application Web & Base de Données</span>
+                        <p class="text-secondary small mb-0">
+                            Développement d'un système de suivi d'inventaire automatisé sous <strong>PHP/MySQL</strong> : gestion des entrées/sorties de produits, alertes de réapprovisionnement et rapports de stock en temps réel.
+                        </p>
+                    </div>
+
+                    <div class="custom-card mb-0">
+                        <h6 class="fw-bold text-dark mb-1">Système d'Information Géographique (SIG)</h6>
+                        <span class="text-muted small d-block mb-2">Projet SIG & Cartographie</span>
+                        <p class="text-secondary small mb-0">
+                            Analyse spatiale, numérisation et réalisation de cartes thématiques sous <strong>QGIS</strong> pour la prise de décision.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION EXPERIENCES -->
+    <section id="experiences" class="bg-white">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Expériences & Certifications</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Expériences -->
+                <div class="col-lg-6">
+                    <h5 class="fw-bold mb-4 text-dark"><i class="fas fa-briefcase me-2 text-primary"></i> Expériences Professionnelles</h5>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h6 class="fw-bold text-dark mb-0">Stagiaire — INSEED</h6>
+                            <small class="text-primary fw-bold">13/05/2025 - 12/06/2025</small>
+                            <p class="text-secondary small mt-1">Traitement informatique et analyse statistique de données.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6 class="fw-bold text-dark mb-0">Stagiaire Technique — AANT</h6>
+                            <small class="text-primary fw-bold">17/06/2023 - 17/07/2023</small>
+                            <p class="text-secondary small mt-1">Assistance et maintenance sur les équipements informatiques.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6 class="fw-bold text-dark mb-0">Agent Enrôleur — CONOREC</h6>
+                            <small class="text-primary fw-bold">28/08/2023 - 16/09/2023</small>
+                            <p class="text-secondary small mt-1">Saisie biométrique et révision du fichier électoral national.</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h6 class="fw-bold text-dark mb-0">Stagiaire — CNPS</h6>
+                            <small class="text-primary fw-bold">04/07/2022 - 29/09/2022</small>
+                            <p class="text-secondary small mt-1">Immersion informatique et proposition de solutions d'amélioration des services.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="col-lg-6">
+                    <h5 class="fw-bold mb-4 text-dark"><i class="fas fa-certificate me-2 text-primary"></i> Certifications & Formations</h5>
+                    
+                    <div class="custom-card mb-3">
+                        <h6 class="fw-bold text-dark mb-1">Infographie & Design Visuel</h6>
+                        <small class="text-primary fw-bold d-block mb-1">OIF | 03/2023 - 07/2023</small>
+                        <p class="text-muted small mb-0">Création visuelle et maîtrise des outils de la chaîne graphique.</p>
+                    </div>
+
+                    <div class="custom-card mb-3">
+                        <h6 class="fw-bold text-dark mb-1">SIG & Cartographie Numérique</h6>
+                        <small class="text-primary fw-bold d-block mb-1">Centre Formatech | 2022 - 2023</small>
+                        <p class="text-muted small mb-0">Expertise pratique sur le logiciel QGIS.</p>
+                    </div>
+
+                    <div class="custom-card mb-3">
+                        <h6 class="fw-bold text-dark mb-1">Maintenance Informatique</h6>
+                        <small class="text-primary fw-bold d-block mb-1">O.N.G AIDE-EMPLOI | 2022</small>
+                        <p class="text-muted small mb-0">Diagnostic, réparation et entretien des systèmes informatiques.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION CONTACT -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2 class="section-title">Discutons de votre projet</h2>
+                <p class="text-light opacity-75 mt-2">Vous avez un besoin urgent ou un projet à réaliser ? Contactez-moi directement.</p>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <i class="fas fa-envelope contact-icon"></i>
+                        <h6 class="fw-bold mb-2">Email</h6>
+                        <p class="mb-0 small"><a href="mailto:mchouaabdallah@gmail.com" class="text-light text-decoration-none">mchouaabdallah@gmail.com</a></p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <i class="fab fa-whatsapp contact-icon text-success"></i>
+                        <h6 class="fw-bold mb-2">WhatsApp / Téléphone</h6>
+                        <p class="mb-0 small">
+                            <a href="https://wa.me/23566569068" target="_blank" class="text-light text-decoration-none">+235 66 56 90 68</a> / 
+                            <a href="tel:+23595986501" class="text-light text-decoration-none">+235 95 98 65 01</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="contact-box">
+                        <i class="fas fa-map-marker-alt contact-icon"></i>
+                        <h6 class="fw-bold mb-2">Localisation</h6>
+                        <p class="mb-0 small text-light">Farcha, N’Djamena - Tchad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0 small">© MAHAMAT CHOUA ABDALLAH — Consultant Informatique & Services Web</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
